@@ -78,7 +78,7 @@ and use "tmux attach -t 0" to enter the terminal. Use "tmux list-session"
 to check the current active terminals]
 
 
-./emucon run --id 0 --listen ":4680
+./emucon run --id 0 --listen ":4680"
 ./emucon run --id 1 --listen ":4681"
 ./emucon run --id 2 --listen ":4682"
 ./emucon run --id 3 --listen ":4683"
