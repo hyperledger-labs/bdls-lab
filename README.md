@@ -26,7 +26,7 @@ the Internet. BDLS overcomes many problems, such as the deadlock problem caused 
 p2p/broadcast channels. These problems are all very relevant to existing realistic open
 network scenarios, and are the focus of extensive work in improving Internet security, but it
 is an area largely ignored by most in mainstream BFT protocol design.
-(Paper: https://eprint.iacr.org/2019/1460.pdf)
+(Paper: https://eprint.iacr.org/2019/1460.pdf or https://dl.acm.org/doi/abs/10.1145/3538227 or  https://doi.org/10.1145/3538227 or https://www.doi.org/10.1007/978-3-030-91859-0_2 )
 
 For this library, to make the runtime behavior of consensus algorithm predictable as function:
 y = f(x, t), where 'x' is the message it received, and 't' is the time while being called,
