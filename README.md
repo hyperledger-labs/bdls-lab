@@ -5,7 +5,7 @@ Efficient BFT in partial synchronous networks
 
 [1]: https://godoc.org/github.com/Sperax/bdls?status.svg
 [2]: https://godoc.org/github.com/Sperax/bdls
-[3]: https://img.shields.io/github/license/Sperax/bdls
+[3]: https://img.shields.io/badge/License-Apache_2.0-blue.svg
 [4]: LICENSE
 [5]: https://travis-ci.org/Sperax/bdls.svg?branch=master
 [6]: https://travis-ci.org/Sperax/bdls
