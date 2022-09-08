@@ -10,13 +10,15 @@ import (
 	"sort"
 	"time"
 
+	//"fmt"
+
 	"github.com/yonggewang/bdls/crypto/blake2b"
 	proto "github.com/gogo/protobuf/proto"
 )
 
 const (
-	// ProtocolVersion is the current BDLS protocol implementation version,
-	// version wil be sent along with messages for protocol upgrading.
+	// the current BDLS protocol version,
+	// version will be sent along with messages for protocol upgrading.
 	ProtocolVersion = 1
 	// DefaultConsensusLatency is the default propagation latency setting for
 	// consensus protocol, user can adjust consensus object's latency setting
@@ -28,9 +30,10 @@ const (
 )
 
 type (
-	// State is the data to participant in consensus
+	// State is the data to participant in consensus. This could be candidate
+	// blocks in blockchain systems
 	State []byte
-	// StateHash is a fixed size hash to identify a state
+	// StateHash = H(State)
 	StateHash [blake2b.Size256]byte
 )
 
@@ -38,7 +41,7 @@ type (
 func defaultHash(s State) StateHash { return blake2b.Sum256(s) }
 
 type (
-	// consensusStage defines the status of consensus automate
+	// consensusStage defines the status of consensus automata
 	consensusStage byte
 )
 
@@ -51,8 +54,6 @@ const (
 	stageLockRelease
 )
 
-// messageTuple contains a state hash, a decoded incoming message
-// and it's encoded raw message with a signature.
 type messageTuple struct {
 	StateHash StateHash    // computed while adding
 	Message   *Message     // the decoded message
@@ -255,10 +256,10 @@ type Consensus struct {
 	currentRound *consensusRound // current round which has collected >=2t+1 <roundchange>
 
 	// timeouts in different stage
-	rcTimeout          time.Time // roundchange status timeout
-	lockTimeout        time.Time // lock status timeout
-	commitTimeout      time.Time // commit status timeout
-	lockReleaseTimeout time.Time // lock-release status timeout
+	rcTimeout          time.Time // roundchange status timeout: Delta_0
+	lockTimeout        time.Time // lock status timeout: Delta_1
+	commitTimeout      time.Time // commit status timeout: Delta_2
+	lockReleaseTimeout time.Time // lock-release status timeout: Delta_3
 
 	// locked states, along with its signatures and hashes in tuple
 	locks []messageTuple
@@ -294,7 +295,7 @@ type Consensus struct {
 	participants []Identity
 
 	// count num of individual identities
-	numIdentities int
+	numIdentities int //[YONGGE WANG' comments:] make sure this is synchronized with []Identity
 
 	// set to true to enable <commit> message unicast
 	enableCommitUnicast bool
@@ -1243,7 +1244,7 @@ func (c *Consensus) receiveMessage(bts []byte, now time.Time) error {
 		}
 
 		// for <roundchange> message, we need to find in each round
-		// to check if this participant has already sent <roundchange>
+		// to check if this sender has already sent <roundchange>
 		// we only keep the message from the max round.
 		// NOTE: we don't touch current round to prevent removing
 		// valid proofs.
@@ -1321,7 +1322,7 @@ func (c *Consensus) receiveMessage(bts []byte, now time.Time) error {
 
 			}
 
-			// for the leader, who's current round has at least 2*t+1 <roundchange>,
+			// for the leader, whose current round has at least 2*t+1 <roundchange>,
 			// we will track max proposed state for each valid added <roundchange>
 			if round == c.currentRound && round.NumRoundChanges() >= 2*c.t()+1 {
 				leaderKey := c.roundLeader(m.Round)
@@ -1478,6 +1479,7 @@ func (c *Consensus) receiveMessage(bts []byte, now time.Time) error {
 		c.rcTimeout = now.Add(c.roundchangeDuration(0))
 		// we sync our height and broadcast new <roundchange>.
 		c.broadcastRoundChange()
+
 	case MessageType_Resync:
 		// push the proofs in loopback device
 		for k := range m.Proof {
@@ -1488,6 +1490,7 @@ func (c *Consensus) receiveMessage(bts []byte, now time.Time) error {
 			}
 			c.loopback = append(c.loopback, out)
 		}
+
 	default:
 		return ErrMessageUnknownMessageType
 	}

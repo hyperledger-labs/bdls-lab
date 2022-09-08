@@ -50,6 +50,7 @@ func (c *Consensus) AddParticipant(key *ecdsa.PublicKey) {
 		}
 	}
 	c.participants = append(c.participants, coord)
+	c.numIdentities ++
 }
 
 // createConsensus creates a valid consensus object with given height & round and random state
@@ -230,6 +231,7 @@ func TestLockMessageRoundSwitch(t *testing.T) {
 
 	bts, err = proto.Marshal(sp)
 	assert.Nil(t, err)
+	consensus.numIdentities = 20
 	err = consensus.ReceiveMessage(bts, time.Now())
 	assert.Nil(t, err)
 	// assert length of locks to 2
@@ -237,6 +239,7 @@ func TestLockMessageRoundSwitch(t *testing.T) {
 
 	// round switch to 12 with old B', resetting particpants
 	consensus.participants = nil
+	consensus.numIdentities = 0
 	_, sp, privateKey, proofKeys = createLockMessageState(t, 20, m.State, 1, 12, 1, 12)
 	consensus.AddParticipant(&privateKey.PublicKey)
 	consensus.SetLeader(&privateKey.PublicKey)
@@ -251,6 +254,7 @@ func TestLockMessageRoundSwitch(t *testing.T) {
 	assert.Nil(t, err)
 	// assert length of locks to 2
 	assert.Equal(t, 2, len(consensus.locks))
+
 }
 
 func TestLockReleaseMessageRoundSwitch(t *testing.T) {
@@ -270,6 +274,7 @@ func TestLockReleaseMessageRoundSwitch(t *testing.T) {
 
 	// round switch to 11,  resetting particpants
 	consensus.participants = nil
+	consensus.numIdentities = 0
 	_, sp, privateKey, proofKeys = createLockReleaseMessage(t, 20, 1, 11, 1, 11)
 	consensus.AddParticipant(&privateKey.PublicKey)
 	consensus.SetLeader(&privateKey.PublicKey)
