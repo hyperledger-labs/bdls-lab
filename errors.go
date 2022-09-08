@@ -74,7 +74,7 @@ var (
 	ErrCommitStateMismatch   = errors.New("the state in <commit> message does not match what leader has locked")
 	ErrCommitStateValidation = errors.New("the state data validation failed <commit> message")
 	ErrCommitStatus          = errors.New("received <commit> message in non COMMIT state")
-	ErrCommitHeightMismatch  = errors.New("the <commit> messge has another height than expected")
+	ErrCommitHeightMismatch  = errors.New("the <commit> message has another height than expected")
 	ErrCommitRoundMismatch   = errors.New("the <commit> message is from another round")
 
 	// <decide> verification
