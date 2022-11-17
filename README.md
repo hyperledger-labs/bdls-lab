@@ -64,7 +64,7 @@ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> .profile
 source ~/.profile 
 go version
 go env
-git clone https://github.com/yonggewang/bdls.git
+git clone https://github.com/hyperledger-labs/bdls.git
 cd bdls/
 git checkout master
 cd cmd/emucon/
@@ -89,7 +89,7 @@ go test -v -cpuprofile=cpu.out -memprofile=mem.out -timeout 2h
 ## Regenerate go.mod and go.sum
 ```
 rm go.*
-go mod init github.com/yonggewang/bdls
+go mod init github.com/hyperledger-labs/bdls
 go mod tidy
 go mod vendor
 ```
