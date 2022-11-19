@@ -1,6 +1,6 @@
 We welcome contributions to this project, please find the bi-weekly lab meeting. 
 ```
-Thursday, November 10th, 2022
+Thursday, November 19th, 2022
 9:30am to 10:00am Eastern Time
 Repeats:
 Every 2 weeks on Thursday
