@@ -15,10 +15,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/urfave/cli/v2"
 	"github.com/yonggewang/bdls"
 	"github.com/yonggewang/bdls/agent-tcp"
 	"github.com/yonggewang/bdls/crypto/blake2b"
-	"github.com/urfave/cli/v2"
 )
 
 // A quorum set for consenus
@@ -46,6 +46,11 @@ func main() {
 						Value: "./quorum.json",
 						Usage: "output quorum file",
 					},
+					&cli.IntFlag{
+						Name:  "append",
+						Value: 0,
+						Usage: "append key to quorum file",
+					},
 				},
 				Action: func(c *cli.Context) error {
 					count := c.Int("count")
@@ -58,6 +63,40 @@ func main() {
 						}
 
 						quorum.Keys = append(quorum.Keys, privateKey.D)
+					}
+
+					newKey := c.Int("append")
+					if newKey != 0 {
+						quorum := &Quorum{}
+						fileBytes, _ := os.ReadFile(c.String("config"))
+						err := json.Unmarshal(fileBytes, quorum)
+
+						if err != nil {
+							fmt.Println("JSON decode error!")
+							return err
+						}
+						// generate private keys
+						for i := 0; i < newKey; i++ {
+							privateKey, err := ecdsa.GenerateKey(bdls.S256Curve, rand.Reader)
+							if err != nil {
+								return err
+							}
+
+							quorum.Keys = append(quorum.Keys, privateKey.D)
+						}
+						existFile, err := os.Create(c.String("config"))
+						if err != nil {
+							return err
+						}
+						enc := json.NewEncoder(existFile)
+						enc.SetIndent("", "\t")
+						err = enc.Encode(quorum)
+						if err != nil {
+							return err
+						}
+						existFile.Close()
+						log.Println("generate", c.Int("append"), "keys")
+						return nil
 					}
 
 					file, err := os.Create(c.String("config"))

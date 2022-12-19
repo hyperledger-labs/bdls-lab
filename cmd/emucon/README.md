@@ -39,6 +39,7 @@ USAGE:
 OPTIONS:
    --count value   number of participant in quorum (default: 4)
    --config value  output quorum file (default: "./quorum.json")
+   --append value  append key to quorum file (default: 0) 
    --help, -h      show help (default: false)
 
 ```
