@@ -1,4 +1,3 @@
-
 package bdls
 
 import (
@@ -10,8 +9,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/yonggewang/bdls/crypto/blake2b"
-	"github.com/yonggewang/bdls/crypto/btcec"
+	"github.com/bdls-bft/consensus/crypto/blake2b"
+	"github.com/bdls-bft/consensus/crypto/btcec"
 	proto "github.com/gogo/protobuf/proto"
 )
 

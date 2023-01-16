@@ -3,7 +3,7 @@
 ## Install
 
 ```
-$ git clone https://github.com/yonggewang/bdls
+$ git clone https://github.com/bdls-bft/consensus
 $ cd bdls/cmd/emucon
 $ go build .
 $ ./emucon
