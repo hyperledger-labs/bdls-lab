@@ -11,7 +11,7 @@ import (
 
 	//"fmt"
 
-	"github.com/bdls-bft/consensus/crypto/blake2b"
+	"github.com/BDLS-bft/consensus/crypto/blake2b"
 	proto "github.com/gogo/protobuf/proto"
 )
 

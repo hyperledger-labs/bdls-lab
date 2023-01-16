@@ -15,8 +15,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bdls-bft/consensus"
-	"github.com/bdls-bft/consensus/crypto/blake2b"
+	bdls "github.com/BDLS-bft/consensus"
+	"github.com/BDLS-bft/consensus/crypto/blake2b"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/stretchr/testify/assert"
 )

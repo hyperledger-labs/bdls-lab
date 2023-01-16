@@ -10,7 +10,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/bdls-bft/consensus/timer"
+	"github.com/BDLS-bft/consensus/timer"
 )
 
 // fake address for IPCPeer

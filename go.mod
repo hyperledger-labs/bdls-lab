@@ -1,4 +1,4 @@
-module github.com/bdls-bft/consensus
+module github.com/BDLS-bft/consensus
 
 go 1.17
 

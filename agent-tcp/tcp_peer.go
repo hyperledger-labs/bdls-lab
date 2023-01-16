@@ -14,9 +14,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/bdls-bft/consensus"
-	"github.com/bdls-bft/consensus/crypto/blake2b"
-	"github.com/bdls-bft/consensus/timer"
+	bdls "github.com/BDLS-bft/consensus"
+	"github.com/BDLS-bft/consensus/crypto/blake2b"
+	"github.com/BDLS-bft/consensus/timer"
 	proto "github.com/gogo/protobuf/proto"
 )
 
