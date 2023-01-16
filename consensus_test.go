@@ -21,7 +21,9 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/bytefmt"
+
 	"github.com/BDLS-bft/bdls/crypto/blake2b"
+
 	"github.com/davecgh/go-spew/spew"
 	proto "github.com/gogo/protobuf/proto"
 	"github.com/olekukonko/tablewriter"

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/BDLS-bft/bdls"
+
 	"github.com/stretchr/testify/assert"
 )
 
