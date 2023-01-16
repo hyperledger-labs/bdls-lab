@@ -1,4 +1,3 @@
-
 package agent
 
 import (
@@ -15,9 +14,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/yonggewang/bdls"
-	"github.com/yonggewang/bdls/crypto/blake2b"
-	"github.com/yonggewang/bdls/timer"
+	"github.com/bdls-bft/consensus"
+	"github.com/bdls-bft/consensus/crypto/blake2b"
+	"github.com/bdls-bft/consensus/timer"
 	proto "github.com/gogo/protobuf/proto"
 )
 

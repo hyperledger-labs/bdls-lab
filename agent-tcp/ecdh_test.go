@@ -5,7 +5,7 @@ import (
 	"crypto/rand"
 	"testing"
 
-	"github.com/yonggewang/bdls"
+	"github.com/bdls-bft/consensus"
 	"github.com/stretchr/testify/assert"
 )
 

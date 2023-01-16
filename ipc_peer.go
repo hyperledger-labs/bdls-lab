@@ -1,4 +1,3 @@
-
 package bdls
 
 import (
@@ -11,7 +10,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/yonggewang/bdls/timer"
+	"github.com/bdls-bft/consensus/timer"
 )
 
 // fake address for IPCPeer
