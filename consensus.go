@@ -1,4 +1,3 @@
-
 package bdls
 
 import (
@@ -12,7 +11,7 @@ import (
 
 	//"fmt"
 
-	"github.com/yonggewang/bdls/crypto/blake2b"
+	"github.com/BDLS-bft/bdls/crypto/blake2b"
 	proto "github.com/gogo/protobuf/proto"
 )
 

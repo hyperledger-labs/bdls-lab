@@ -1,4 +1,4 @@
-module github.com/yonggewang/bdls
+module github.com/BDLS-bft/bdls
 
 go 1.17
 
