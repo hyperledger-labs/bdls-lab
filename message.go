@@ -9,8 +9,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/BDLS-bft/consensus/crypto/blake2b"
-	"github.com/BDLS-bft/consensus/crypto/btcec"
+
+	"github.com/BDLS-bft/bdls/crypto/blake2b"
+	"github.com/BDLS-bft/bdls/crypto/btcec"
+
 	proto "github.com/gogo/protobuf/proto"
 )
 

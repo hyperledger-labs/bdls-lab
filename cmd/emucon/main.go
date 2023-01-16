@@ -15,9 +15,11 @@ import (
 	"os"
 	"time"
 
-	bdls "github.com/BDLS-bft/consensus"
-	"github.com/BDLS-bft/consensus/agent-tcp"
-	"github.com/BDLS-bft/consensus/crypto/blake2b"
+
+	"github.com/BDLS-bft/bdls"
+	"github.com/BDLS-bft/bdls/agent-tcp"
+	"github.com/BDLS-bft/bdls/crypto/blake2b"
+
 	"github.com/urfave/cli/v2"
 )
 
