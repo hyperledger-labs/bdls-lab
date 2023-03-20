@@ -15,8 +15,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/yonggewang/bdls"
-	"github.com/yonggewang/bdls/crypto/blake2b"
+
+	"github.com/BDLS-bft/bdls"
+	"github.com/BDLS-bft/bdls/crypto/blake2b"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/stretchr/testify/assert"
 )
