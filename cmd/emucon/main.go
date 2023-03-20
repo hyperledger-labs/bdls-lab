@@ -16,11 +16,11 @@ import (
 	"time"
 
 
-	"github.com/BDLS-bft/bdls"
-	"github.com/BDLS-bft/bdls/agent-tcp"
-	"github.com/BDLS-bft/bdls/crypto/blake2b"
-
 	"github.com/urfave/cli/v2"
+	"github.com/yonggewang/bdls"
+	"github.com/yonggewang/bdls/agent-tcp"
+	"github.com/yonggewang/bdls/crypto/blake2b"
+
 )
 
 // A quorum set for consenus
