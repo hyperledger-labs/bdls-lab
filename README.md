@@ -17,6 +17,7 @@ Efficient BFT in partial synchronous networks
 [12]: https://sourcegraph.com/github.com/Sperax/bdls?badge
 
 # BDLS Consensus
+* ## [Contributing info](CONTRIBUTING.md)
 
 ## Introduction
 
@@ -42,9 +43,11 @@ the correctness of program implementation can be proven with proper test cases.
 4. Easy integratation into Blockchain & non-Blockchain consensus, like [WAL replication](https://en.wikipedia.org/wiki/Replication_(computing)#Database_replication) in database.
 5. Builtin network emulation for various network latency with comprehensive statistics.
 
+
+
 ## Documentation
 
-For complete documentation, see the associated [Godoc](https://pkg.go.dev/github.com/Sperax/bdls).
+For complete documentation, see the associated [Godoc](https://pkg.go.dev/github.com/BDLS-bft/bdls).
 
 
 ## Install BDLS on Ubuntu Server 20.04 
