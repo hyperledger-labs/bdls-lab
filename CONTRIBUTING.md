@@ -3,17 +3,17 @@
 * The integrating efforts to run BDLS as consensus protocol using the Fabric fork:
 `https://github.com/BDLS-bft/fabric`
 
-You can submit a PR, Issue or contact me directly for any inquiry
+* You can submit a PR, Issue or contact me directly for any inquiry
 ```xml
 Email: a.alsalih2@gmail.com, 
 Discord: ahmedalsalih#6158
 ```
 
-You can join the Mentorship Project 2023 :
+* You can join the Mentorship Project 2023 :
 https://wiki.hyperledger.org/display/INTERN/Integrate+new+BFT+protocol+%28BDLS+consensus%29+with+Fabric
 
 
-Bi-weekly lab meeting.
+* Bi-weekly lab meeting.
 ```
 Next meeting: Thursday, Mar-30, 2023
 9:30am to 10:00am Eastern Time
