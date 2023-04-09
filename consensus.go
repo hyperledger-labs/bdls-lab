@@ -10,8 +10,6 @@ import (
 	"time"
 
 	//"fmt"
-
-
 	"github.com/BDLS-bft/bdls/crypto/blake2b"
 
 	proto "github.com/gogo/protobuf/proto"
@@ -1633,6 +1631,23 @@ func (c *Consensus) HasProposed(state State) bool {
 	}
 
 	return false
+}
+
+// ReceiveMessage input to core incoming consensus messages, and returns error
+func (c *Consensus) SubmitRequest(bts []byte, now time.Time) (err error) {
+	// messages broadcasted to myself may be queued recursively, and
+	// we only process these messages in defer to avoid side effects
+	// while processing.
+	defer func() {
+		for len(c.loopback) > 0 {
+			bts := c.loopback[0]
+			c.loopback = c.loopback[1:]
+			// NOTE: message directed to myself ignores error.
+			_ = c.receiveMessage(bts, now)
+		}
+	}()
+
+	return c.receiveMessage(bts, now)
 }
 
 // Join adds a peer to consensus for message delivery, a peer is
