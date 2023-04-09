@@ -10,7 +10,6 @@ import (
 	"time"
 
 	//"fmt"
-
 	"github.com/BDLS-bft/bdls/crypto/blake2b"
 
 	proto "github.com/gogo/protobuf/proto"
