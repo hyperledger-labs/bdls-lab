@@ -30,3 +30,7 @@ You can join the calls every other Thursday at 9:30 AM Eastern at:
 You can also talk with the developers of the lab in the **`#bdls`** channel on the Hyperledger Discord server at:
 
 https://chat.hyperledger.org/
+
+
+# CLP -LFX program
+https://wiki.hyperledger.org/display/CLP/Integrate+new+BFT+protocol+%28BDLS+consensus%29+with+Fabric
